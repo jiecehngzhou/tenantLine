@@ -26,6 +26,11 @@ public class Staff implements Serializable {
     private String tenantId;
 
     /**
+     * 公司id
+     */
+    private Integer companyId;
+
+    /**
      * 员工id
      */
     private String staffId;

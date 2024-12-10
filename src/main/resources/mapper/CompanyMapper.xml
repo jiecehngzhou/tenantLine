@@ -4,5 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.jiecheng.tenantline.mapper.CompanyMapper">
 
+    <update id="updateById2" parameterType="cn.jiecheng.tenantline.po.Company">
+        update company set company_name=#{companyName} where id=#{id}
+    </update>
 
+
+    <select id="getCompanyList2" resultType="map">
+        select
+            company.id,
+            company.company_name,
+            staff.staff_id,
+            staff.staff_name
+        from company
+        left join staff on company.id=staff.company_id
+        where company.tenant_id=#{tenantId} and staff.tenant_id=#{tenantId}
+    </select>
 </mapper>

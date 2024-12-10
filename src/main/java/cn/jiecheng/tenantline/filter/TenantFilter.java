@@ -13,6 +13,7 @@ public class TenantFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         TenantContext.setCurrentTenant(getHeaderOrParam(servletRequest));
         filterChain.doFilter(servletRequest, servletResponse);
+        TenantContext.clear();
     }
 
     private String getHeaderOrParam(ServletRequest request) {

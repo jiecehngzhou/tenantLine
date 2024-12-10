@@ -10,8 +10,8 @@ public class MyTenantLineHandler implements TenantLineHandler {
 
     public Expression getTenantId() {
         String tenantId = TenantContext.getCurrentTenant();
-        if(tenantId == null){
-            throw new NullPointerException("租户id异常");
+        if(tenantId == null) {
+            throw new NullPointerException();
         }
         return new StringValue(tenantId);
     }
